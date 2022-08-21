@@ -1,3 +1,4 @@
 # artcollection
-The App presents the works of art available at the Art Institute of Chicago allowing the purchase by the user.
-This project is for non-profit case study only. It is related to the development of web applications using React technology. The commercial values presented are only didactic, so they do not reflect on the real value of the work of art.
+The App presents the collection available at the Art Institute of Chicago allowing the purchase of them by the user.
+This is a non-profit project only for study-case related to development of web applications using React + Vite technology. 
+The commercial values presented are only didactic, so they do not reflect the real value of the collection in any circumstances.
