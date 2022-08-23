@@ -1,9 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../Context";
+import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 function Image({ className, img }) {
   const [hover, setHover] = useState(false);
+  const { toggleFavorite } = useContext(Context);
 
-  console.log("hovered", hover);
+  /* Render icons based on the hover event */
+  function heartIcon() {
+    if (img.isFavorite) {
+      const heartFill = (
+        <MdFavorite
+          className="favorite"
+          onClick={() => toggleFavorite(img.id)}
+        />
+      );
+      return heartFill;
+    } else if (hover) {
+      const heartOutline = (
+        <MdOutlineFavoriteBorder
+          className="favorite"
+          onClick={() => toggleFavorite(img.id)}
+        />
+      );
+      return heartOutline;
+    }
+  }
+
+  const cartIcon = hover && <IoIosAddCircleOutline className="cart" />;
 
   return (
     <div
@@ -11,14 +36,11 @@ function Image({ className, img }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {<img src={img} className="image-grid" />}
+      <img src={img.url} className="image-grid" />
+      {heartIcon()}
+      {cartIcon}
     </div>
   );
 }
 
 export default Image;
-
-// 1. Create state boolean for "hovered"
-// 2. When the mouse enters the Image's div, set "hovered" to true
-// 3. When the mouse leaves the Image's div, set "hovered" to false
-// 4. Log "hovered" to the console so you know it's changing successfully

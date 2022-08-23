@@ -6,7 +6,7 @@ import getClass from "../utils/classSize.jsx";
 function Photos() {
   const { allPhotos } = useContext(Context);
   const allImg = allPhotos.map((img, index) => (
-    <Image key={img.id} img={img.url} className={getClass(index)} />
+    <Image key={img.id} img={img} className={getClass(index)} />
   ));
   return <main className="photos">{allImg}</main>;
 }
