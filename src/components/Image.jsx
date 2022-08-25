@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../Context";
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoIosAddCircleOutline } from "react-icons/io";
