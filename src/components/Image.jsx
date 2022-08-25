@@ -1,14 +1,16 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../Context";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoIosAddCircleOutline } from "react-icons/io";
 
 function Image({ className, img }) {
   const [hover, setHover] = useState(false);
-  const { toggleFavorite } = useContext(Context);
+  const { toggleFavorite, addToCart, removeFromCart, cartItems } =
+    useContext(Context);
 
-  /* Render icons based on the hover event */
+  /* FAVORITE  */
   function heartIcon() {
     if (img.isFavorite) {
       const heartFill = (
@@ -29,7 +31,28 @@ function Image({ className, img }) {
     }
   }
 
-  const cartIcon = hover && <IoIosAddCircleOutline className="cart" />;
+  /* ADD TO CART */
+  function cartIcon() {
+    const itemsInCart = cartItems.some((item) => item.id === img.id);
+    if (itemsInCart) {
+      const cartItemExist = (
+        <BsFillCartCheckFill
+          className="cart"
+          onClick={() => removeFromCart(img)}
+        />
+      );
+      return cartItemExist;
+    } else if (hover) {
+      const addCartIcon = (
+        <IoIosAddCircleOutline
+          className="cart"
+          onClick={() => addToCart(img)}
+        />
+      );
+      return addCartIcon;
+    }
+  }
+  /* REMOVE TO CART */
 
   return (
     <div
@@ -39,7 +62,7 @@ function Image({ className, img }) {
     >
       <img src={img.url} className="image-grid" />
       {heartIcon()}
-      {cartIcon}
+      {cartIcon()}
     </div>
   );
 }
