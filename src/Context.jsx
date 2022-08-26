@@ -40,7 +40,9 @@ function ContextProvider({ children }) {
     );
   };
 
-  console.log(cartItems);
+  const emptyCart = () => {
+    setCartItems([]);
+  };
 
   return (
     <Context.Provider
@@ -50,6 +52,7 @@ function ContextProvider({ children }) {
         toggleFavorite,
         addToCart,
         removeFromCart,
+        emptyCart,
       }}
     >
       {children}

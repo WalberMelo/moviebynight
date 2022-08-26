@@ -150,10 +150,13 @@ img.image-grid {
   opacity: 0.7;
 }
 
-.ri-delete-bin-line,
-.ri-delete-bin-fill {
+.ri-delete-bin-line {
   font-size: 1.3em;
   cursor: pointer;
+}
+
+.ri-delete-bin-line:hover {
+  transform: translateY(-3px);
 }
 
 .cart {

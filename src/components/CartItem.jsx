@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../Context";
 import { BsTrash } from "react-icons/bs";
+import PropTypes from "prop-types";
 
 function CartItem({ item }) {
   const { removeFromCart } = useContext(Context);
@@ -15,5 +16,11 @@ function CartItem({ item }) {
     </div>
   );
 }
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }),
+};
 
 export default CartItem;
