@@ -3,9 +3,13 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-  const [allPhotos, setAllPhotos] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  /* GET FROM LOCAL STORAGE */
+  let cartStorage = JSON.parse(localStorage.getItem("products")) || [];
 
+  const [allPhotos, setAllPhotos] = useState([]);
+  const [cartItems, setCartItems] = useState(cartStorage);
+
+  /* FETCH API DATA */
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
@@ -13,6 +17,11 @@ function ContextProvider({ children }) {
       .then((res) => res.json())
       .then((data) => setAllPhotos(data));
   }, []);
+
+  /* SENT TO LOCAL STORAGE */
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const toggleFavorite = (id) => {
     const updatedArr = allPhotos.map((photo) => {
