@@ -1,0 +1,196 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 20,
+      "isFavorite": false
+    },
+    {
+      "id": 2,
+      "title": "Sun-screen",
+      "price": 10,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 3,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 4,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 5,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 6,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 7,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 8,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 9,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 10,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 11,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 12,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 13,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 14,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 15,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 16,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 17,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 18,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 19,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 20,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 21,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    },
+    {
+      "id": 22,
+      "title": "Bio Palm Oli",
+      "price": 88,
+      "img": "./img/img_1.jpg",
+      "stock": 100,
+      "isFavorite": false
+    },
+    {
+      "id": 23,
+      "title": "Sun-screen",
+      "price": 109,
+      "img": "./img/img_2.jpg",
+      "stock": 40,
+      "isFavorite": false
+    },
+    {
+      "id": 24,
+      "title": "Corporal cream",
+      "price": 66,
+      "img": "./img/img_3.jpg",
+      "stock": 0,
+      "isFavorite": false
+    }
+  ]
+}

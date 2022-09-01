@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../context/Context";
 import { BsTrash } from "react-icons/bs";
 import PropTypes from "prop-types";
 

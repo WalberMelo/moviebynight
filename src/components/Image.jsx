@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../context/Context";
 import PropTypes from "prop-types";
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsFillCartCheckFill } from "react-icons/bs";

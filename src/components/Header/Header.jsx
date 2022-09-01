@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Context } from "../../Context";
+import { Context } from "../../context/Context";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { Avatar } from "evergreen-ui";
