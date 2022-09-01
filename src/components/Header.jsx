@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../Context";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
+import { Avatar } from "evergreen-ui";
 
 function Header() {
   const { cartItems } = useContext(Context);
@@ -9,14 +10,22 @@ function Header() {
 
   return (
     <header>
-      <Link to="/">
-        <h2>Pic Some</h2>
+      <Link to="/" className="header-title">
+        <h2>NFT Collection</h2>
       </Link>
       <Link to="/cart">
         <div className="image-wrapper wrapper">
           {totalCartItems > 0 && <span>{totalCartItems}</span>}
-          <GrCart className="cart-head" />
+          <GrCart className="cart-head--icon" />
         </div>
+      </Link>
+      <Link to="/account">
+        <Avatar
+          className="avatar"
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg"
+          name="Alan Turing"
+          size={30}
+        />
       </Link>
     </header>
   );
