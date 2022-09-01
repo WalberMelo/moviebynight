@@ -70,7 +70,3 @@ function ContextProvider({ children }) {
 }
 
 export { ContextProvider, Context };
-
-// 1. Add the `cartItems` state to context. (Array)
-// 2. Add function to add an image to the cart. (Takes the full image object as parameter)
-// 3. Make it so clicking the plus icon on the image adds the item to the cart. (Console.log the cart items array to see that it's working)
