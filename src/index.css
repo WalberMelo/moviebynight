@@ -3,6 +3,8 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  margin: 0 auto;
+  padding: 2rem;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -13,6 +15,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --black: #150605;
+  --red: #ea453c;
+  --pink: #f47b6e;
+  --light-blue: #effbfe;
+  --blue: #ace6ec;
 }
 
 a:hover {

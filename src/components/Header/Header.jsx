@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../../Context";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { Avatar } from "evergreen-ui";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 function Header() {
   const { cartItems } = useContext(Context);
@@ -12,6 +13,10 @@ function Header() {
     <header>
       <Link to="/" className="header-title">
         <h2>NFT Collection</h2>
+      </Link>
+      <Link to="/whishlist" className="header-favorite">
+        <MdOutlineFavoriteBorder />
+        FAVORITES
       </Link>
       <Link to="/cart">
         <div className="image-wrapper wrapper">

@@ -1,0 +1,47 @@
+/*******************/
+/*    CART SECTION */
+/*******************/
+main.cart-page {
+  padding: 10px;
+}
+
+.cart-page > h1 {
+  text-align: center;
+}
+
+.cart-page .total-cost {
+  text-align: right;
+  font-size: 1.3em;
+}
+
+.cart-page div.order-button {
+  display: flex;
+  justify-content: center;
+}
+
+div.order-button > button {
+  border-color: var(--black);
+  cursor: pointer;
+  padding: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+div.order-button > button:focus {
+  outline: none;
+}
+
+div.order-button > button:disabled {
+  border-color: lightgray;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.cart-item img {
+  margin-right: auto;
+  margin-left: 10px;
+}

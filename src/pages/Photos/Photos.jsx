@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Context } from "../Context";
-import Image from "../components/Image";
-import getClass from "../utils/classSize.jsx";
+import { Context } from "../../Context";
+import Image from "../../components/Image";
 
 function Photos() {
   const { allPhotos } = useContext(Context);
