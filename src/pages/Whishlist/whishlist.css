@@ -1,0 +1,16 @@
+.movies-cart {
+  display: flex;
+  padding-bottom: 0.7rem;
+  border-bottom: 0.3px solid;
+}
+
+.movie-cart {
+  background-color: hsl(0, 1%, 23%);
+  opacity: 0.9;
+  margin-left: 10px;
+}
+.movie-cart--details {
+  color: #f3f3f3fa;
+  padding: 1rem;
+  position: relative;
+}

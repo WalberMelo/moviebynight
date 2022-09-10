@@ -3,25 +3,43 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-  /* GET FROM LOCAL STORAGE */
   let cartStorage = JSON.parse(localStorage.getItem("products")) || [];
 
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState(cartStorage);
 
-  /* FETCH API DATA */
-  useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllPhotos(data));
-  }, []);
-
-  /* SENT TO LOCAL STORAGE */
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(cartItems));
   }, [cartItems]);
+
+  useEffect(() => {
+    // let query = "popular";
+
+    const fetchData = async () => {
+      let url = `https://api.themoviedb.org/3/movie/popular?page=1&api_key=${api_key}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setAllPhotos(
+          data.results.map((result) => {
+            return {
+              id: result.id,
+              title: result.title,
+              url: `https://image.tmdb.org/t/p/original/${result.poster_path}`,
+              overview: result.overview,
+              rating: result.vote_average,
+              releaseDate: result.release_date,
+              isFavorite: false,
+            };
+          })
+        );
+      } catch (error) {
+        console.error("Error", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const toggleFavorite = (id) => {
     const updatedArr = allPhotos.map((photo) => {
@@ -53,6 +71,14 @@ function ContextProvider({ children }) {
     setCartItems([]);
   };
 
+  //! Search query movie
+  // const [inputImage, setInputImage] = useState("");
+  // console.log("inputImage", inputImage);
+
+  // const controlSearchInput = (img) => {
+  //   setInputImage(img);
+  // };
+
   return (
     <Context.Provider
       value={{
@@ -70,7 +96,3 @@ function ContextProvider({ children }) {
 }
 
 export { ContextProvider, Context };
-
-// 1. Add the `cartItems` state to context. (Array)
-// 2. Add function to add an image to the cart. (Takes the full image object as parameter)
-// 3. Make it so clicking the plus icon on the image adds the item to the cart. (Console.log the cart items array to see that it's working)

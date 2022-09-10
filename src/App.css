@@ -1,7 +1,8 @@
-/*******************/
-/*  IMPORT   CSS   */
-/*******************/
+/****************************/
+/*  IMPORT ALL  CSS PATHS  */
+/***************************/
 
 @import "./components/Header/header.css";
 @import "./pages/Photos/photos.css";
 @import "./pages/Cart/cart.css";
+@import "./pages/Whishlist/whishlist.css";

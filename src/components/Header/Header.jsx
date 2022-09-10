@@ -1,19 +1,29 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
-import { Avatar } from "evergreen-ui";
+import { Avatar, SearchInput } from "evergreen-ui";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 function Header() {
-  const { cartItems } = useContext(Context);
+  const { cartItems, controlSearchInput } = useContext(Context);
   const totalCartItems = cartItems.length;
+
+  const [inputValue, setInputValue] = useState("");
+  // console.log("value:", inputValue);
+  //! Transfer inputValue to context throughout function
+  () => controlSearchInput(inputValue);
 
   return (
     <header>
       <Link to="/" className="header-title">
-        <h2>NFT Collection</h2>
+        <h2>Movies by Nigth</h2>
       </Link>
+      <SearchInput
+        onChange={(e) => setInputValue(e.target.value)}
+        value={inputValue}
+        placeholder="Search for collection"
+      />
       <Link to="/whishlist" className="header-favorite">
         <MdOutlineFavoriteBorder />
         FAVORITES
