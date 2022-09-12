@@ -1,24 +1,16 @@
-:root {
+.login-section {
+  width: 1400px;
+  height: 800px;
   background-image: url("../../assets/images/backgroundSignIn.jpg");
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  filter: grayscale(60%);
+  background-color: #30303039;
+  /* opacity: 40%; */
+  position: absolute;
+  z-index: 1;
 }
 
-.login-wrapper {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 8rem;
-  width: 360px;
-  height: 500px;
-  background-color: #303030;
-  border-radius: 10px;
-  opacity: 95%;
-}
 .login-logo {
   display: flex;
   align-items: center;
@@ -35,9 +27,26 @@
   transition: all 0.3s ease-in-out;
 }
 
-.registration {
-  text-decoration: none;
-  color: #f3f3f3;
+.login-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  width: 360px;
+  height: 500px;
+  background-color: #303030;
+  border-radius: 10px;
+  opacity: 90%;
+}
+
+.login-form {
+  padding: 1.3rem;
+}
+
+.signin:hover {
+  color: #e5f509;
 }
 
 .registration > span {

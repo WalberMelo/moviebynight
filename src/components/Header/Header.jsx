@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <header>
-      <Link to="/movies" className="header-title">
+      <Link to="/" className="header-title">
         <h2>Movie by Nigth</h2>
       </Link>
       <SearchInput

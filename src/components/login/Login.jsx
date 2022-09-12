@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { TextInputField } from "evergreen-ui";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const LoginArea = styled.div`
@@ -9,39 +9,57 @@ const LoginArea = styled.div`
   justify-content: space-around;
 `;
 
-function Login() {
-  const [loginData, setLoginData] = React.useState({
-    email: "",
-    password: "",
-  });
+async function loginUser(credentials) {
+  return fetch("http://localhost:8080/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  }).then((data) => data.json());
+}
 
-  const [isInvalid, setIsInvalid] = useState(false);
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [isInvalid, setIsInvalid] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = await loginUser({
+      email,
+      password,
+    });
+    console.log(token);
+    sessionStorage.setItem("token", JSON.stringify(token));
+  };
 
   return (
-    <div>
+    <div className="login-section">
       <div className="login-logo">
         <h2>Movie by Night</h2>
       </div>
       <div className="login-wrapper">
         <h2>Sign In</h2>
-        <div className="login-form">
-          <form action="">
+        <div>
+          <form onSubmit={handleSubmit}>
             <TextInputField
               className="login-form"
               type="text"
               label=""
               placeholder="Email or phone number"
-              value={loginData.email}
-              onChange={(e) => setValue(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               // validationMessage="This field is required"
               // isInvalid={isInvalid}
             />
             <TextInputField
+              className="login-form"
               type="text"
               label=""
-              placeholder="password"
-              value={loginData.password}
-              onChange={(e) => setValue(e.target.value)}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               // isInvalid={isInvalid}
               // validationMessage="This field is required"
             />
@@ -57,13 +75,18 @@ function Login() {
             </LoginArea>
           </form>
         </div>
-        <Link to="/registration" style={{ textDecoration: "none" }}>
-          <div className="login-registration">
-            <h5 className="registration">
-              <span>New to Movie By Night? </span>Sign up now.
-            </h5>
-          </div>
-        </Link>
+        <div className="login-registration">
+          <h5 className="registration">
+            <span>New to Movie By Night? </span>
+            <Link
+              to="/registration"
+              className="signin"
+              style={{ textDecoration: "none" }}
+            >
+              Sign up now.
+            </Link>
+          </h5>
+        </div>
       </div>
     </div>
   );

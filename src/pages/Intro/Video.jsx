@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
 import Vid from "../../assets/videos/intro.mp4";
-import { Route } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
 `;
 const Movie = styled.div`
+  margin: 0 auto;
   position: absolute;
-  top: 300px;
-  left: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 export default function Video() {
   const [duration, setDuration] = useState(false);
@@ -32,7 +33,7 @@ export default function Video() {
 
   return (
     <>
-      <div className="intro">
+      <div>
         <Container>
           <Movie>
             <ReactPlayer

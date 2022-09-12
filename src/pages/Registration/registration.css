@@ -75,7 +75,7 @@ textarea {
   width: 24%;
   padding: 10px;
   border-radius: 5px;
-  color: white;
+  color: rgb(255, 255, 255);
   box-shadow: 0 0 20px #eee;
   text-shadow: 1px 1px rgb(0, 0, 0);
   background-image: linear-gradient(

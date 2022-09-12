@@ -13,7 +13,7 @@ function Whishlist() {
   const movies = getFavoriteImages.map((movie) => {
     return (
       <div key={movie.id} className="movies-cart">
-        <img src={movie.url} width="130px" />
+        <img src={movie.url} width="130px" height="200px" />
         <div className="movie-cart">
           <div className="movie-cart--details">
             <h3>
