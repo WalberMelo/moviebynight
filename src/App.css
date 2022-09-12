@@ -3,6 +3,9 @@
 /***************************/
 
 @import "./components/Header/header.css";
-@import "./pages/Photos/photos.css";
+@import "./pages/Movies/Movies.css";
 @import "./pages/Cart/cart.css";
 @import "./pages/Whishlist/whishlist.css";
+@import "./components/login/login.css";
+@import "./pages/Registration/registration.css";
+@import "./pages/Intro/video.css";

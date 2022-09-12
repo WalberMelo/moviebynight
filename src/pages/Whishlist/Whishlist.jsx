@@ -36,35 +36,3 @@ function Whishlist() {
 }
 
 export default Whishlist;
-
-{
-  /* <Button onClick={() => toaster.success('Your source is now sending data')}>
-  Success
-</Button> */
-}
-
-// function Whishlist() {
-//   const { allPhotos } = useContext(Context);
-//   const [favorites, setFavorites] = useState();
-
-//   let totalFavorite; //! Implement total of favorite
-//   const favoriteImages = allPhotos.map((img) => {
-//     if (img.isFavorite) {
-//       // totalFavorite = img.url.length;
-//       return (
-//         <div key={img.id}>
-//           <img src={img.url} width="130px" />;
-//         </div>
-//       );
-//     }
-//   });
-
-//   return (
-//     <div>
-//       <p>My Favorites({totalFavorite})</p>
-//       {favoriteImages}
-//     </div>
-//   );
-// }
-
-// export default Whishlist;

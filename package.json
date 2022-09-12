@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev:backend": "nodemon index.js",
-    "dev:frontend": "vite",
+    "backend": "nodemon server.js",
+    "frontend": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "server": "json-server --watch db.json"
@@ -23,6 +23,8 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
+    "react-phone-number-input": "^3.2.11",
+    "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   },

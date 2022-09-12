@@ -109,14 +109,3 @@ Image.propTypes = {
 };
 
 export default Image;
-
-// {showDetails && (
-//   <ShowModal>
-//     <h5>
-//       {title}
-//       <span> - ({releaseDate})</span>
-//     </h5>
-//     <h5>{overview}</h5>
-//     <p>{rating}</p>
-//   </ShowModal>
-// )}

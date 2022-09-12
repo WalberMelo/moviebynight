@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import { Link } from "react-router-dom";
-import { GrCart } from "react-icons/gr";
+import { FcShop } from "react-icons/fc";
+
 import { Avatar, SearchInput } from "evergreen-ui";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
@@ -16,8 +17,8 @@ function Header() {
 
   return (
     <header>
-      <Link to="/" className="header-title">
-        <h2>Movies by Nigth</h2>
+      <Link to="/movies" className="header-title">
+        <h2>Movie by Nigth</h2>
       </Link>
       <SearchInput
         onChange={(e) => setInputValue(e.target.value)}
@@ -31,7 +32,8 @@ function Header() {
       <Link to="/cart">
         <div className="image-wrapper wrapper">
           {totalCartItems > 0 && <span>{totalCartItems}</span>}
-          <GrCart className="cart-head--icon" />
+          {/* <GrCart className="cart-head--icon" /> */}
+          <FcShop className="cart-head--icon" />
         </div>
       </Link>
       <Link to="/account">

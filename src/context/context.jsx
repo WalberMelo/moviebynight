@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+//! HIDE API KEY
+const api_key = "b6d36fdf08c70b93d670b2ab99ad8b3b";
 
 const Context = React.createContext();
 
