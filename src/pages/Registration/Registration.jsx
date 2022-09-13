@@ -131,7 +131,7 @@ function Registration() {
             <br />
             <div className="btn--submit">
               <button className="form--submit">
-                <Link to="/payment" style={{ textDecoration: "none" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <span>Sign In</span>
                 </Link>
               </button>

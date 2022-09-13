@@ -1,13 +1,13 @@
 import Router from "./routes/Routes";
 import "./App.css";
 import Login from "./components/login/Login";
+import useToken from "./hooks/useToken";
 
 function App() {
-  const token = JSON.parse(sessionStorage.getItem("token"));
-  console.log(token);
+  const { token, setToken } = useToken();
 
   if (!token) {
-    return <Login />;
+    return <Login setToken={setToken} />;
   }
 
   return (

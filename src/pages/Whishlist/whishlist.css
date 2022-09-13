@@ -8,10 +8,10 @@
   background-color: hsl(0, 1%, 23%);
   opacity: 0.9;
   margin-left: 10px;
-  height: 200px;
+  height: 230px;
 }
 .movie-cart--details {
   color: #f3f3f3fa;
-  padding: 0.7rem;
+  padding: 0.2rem 0.2rem 1rem 1rem;
   position: relative;
 }

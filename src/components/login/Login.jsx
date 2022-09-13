@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { TextInputField } from "evergreen-ui";
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const LoginArea = styled.div`
   display: flex;
@@ -19,9 +20,11 @@ async function loginUser(credentials) {
   }).then((data) => data.json());
 }
 
-function Login() {
+function Login(setToken) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log(email);
+  console.log(password);
   // const [isInvalid, setIsInvalid] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -30,8 +33,8 @@ function Login() {
       email,
       password,
     });
-    console.log(token);
     sessionStorage.setItem("token", JSON.stringify(token));
+    // setToken(token);
   };
 
   return (
@@ -91,5 +94,9 @@ function Login() {
     </div>
   );
 }
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
 
 export default Login;

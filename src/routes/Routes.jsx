@@ -6,7 +6,6 @@ import Whishlist from "../pages/Whishlist/Whishlist";
 import Header from "../components/Header/Header";
 import Registration from "../pages/Registration/Registration";
 import Video from "../pages/Intro/Video";
-import Home from "../pages/Home/Home";
 // import Login from "../components/login/Login";
 
 function Router() {
@@ -22,7 +21,6 @@ function Router() {
             </div>
           }
         />
-        <Route path="/home" element={<Home />} />
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/registration" element={<Registration />} />
 
