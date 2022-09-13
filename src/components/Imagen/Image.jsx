@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { Context } from "../context/Context";
-import PropTypes from "prop-types";
+import { Context } from "../../context/Context";
+import PropTypes, { func } from "prop-types";
+import { Rating } from "react-simple-star-rating";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsFillCartCheckFill } from "react-icons/bs";
@@ -70,6 +71,20 @@ function Image({ img }) {
     setShowDetails(!showDetails);
   };
 
+  function displayRating() {
+    if (rating <= 2) {
+      return 1;
+    } else if (rating <= 4) {
+      return 2;
+    } else if (rating <= 7) {
+      return 3;
+    } else if (rating <= 8) {
+      return 4;
+    } else if (rating <= 10) {
+      return 5;
+    }
+  }
+
   return (
     <div>
       <div
@@ -84,12 +99,14 @@ function Image({ img }) {
       </div>
       {showDetails && (
         <div className="details">
-          <h5>
-            {title}
-            <span> - ({releaseDate})</span>
-          </h5>
+          <h3>{title}</h3>
+          <span>{releaseDate}</span>
           <h5>{overview}</h5>
-          <p>{rating}</p>
+          <div>
+            <Rating readonly initialValue={displayRating()} size={"12px"} />
+          </div>
+
+          <span>{rating}</span>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../context/Context";
-import Image from "../../components/Image";
+import Image from "../../components/Imagen/Image";
 
 function Photos() {
   const { allPhotos } = useContext(Context);
