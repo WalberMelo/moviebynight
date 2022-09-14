@@ -53,7 +53,17 @@ header {
   width: 100%;
 }
 
+.head-favorite--heart {
+  padding-right: 0.5rem;
+}
+
 .header-favorite {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header-link {
   font-weight: 600;
   letter-spacing: 1px;
   color: #effbfe;

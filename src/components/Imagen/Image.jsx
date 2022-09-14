@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Context } from "../../context/Context";
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 import { Rating } from "react-simple-star-rating";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
@@ -9,13 +9,15 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoIosAddCircleOutline } from "react-icons/io";
 
 // const ShowModal = styled.div`
-//   display: none;
 //   position: absolute;
-//   background-color: #4b403d;
-//   color: #f3f3f3;
-//   opacity: 90%;
-//   margin: 0 auto;
-//   z-index: 1000;
+//   top: 35%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   background-color: rgb(33, 32, 32);
+//   font-size: 14px;
+//   padding: 2rem;
+//   opacity: 80%;
+//   z-index: 100;
 // `;
 
 function Image({ img }) {
@@ -85,6 +87,34 @@ function Image({ img }) {
     }
   }
 
+  //Formatting date from 2020-12-07 to Dec 07, 2020
+  const date = releaseDate;
+  let month;
+  let day;
+  let year;
+  function formatDate(num) {
+    let months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const newDate = num.split("-");
+    const monthly = Number(newDate[1].slice(1));
+    month = months[monthly];
+    day = Number(newDate[2]);
+    year = Number(newDate[0]);
+  }
+  formatDate(date);
+
   return (
     <div>
       <div
@@ -97,8 +127,12 @@ function Image({ img }) {
         {cartIcon()}
         <img src={url} className="image-grid" />
       </div>
+      <div className="title">
+        <p>{title}</p>
+        <span>{`${month} ${day}, ${year}`}</span>
+      </div>
       {showDetails && (
-        <div className="details">
+        <div className="ShowModal">
           <h3>{title}</h3>
           <span>{releaseDate}</span>
           <h5>{overview}</h5>

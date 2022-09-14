@@ -17,18 +17,27 @@ function Header() {
 
   return (
     <header>
-      <Link to="/" className="header-title">
-        <h2>Movie by Nigth</h2>
-      </Link>
-      <SearchInput
-        onChange={(e) => setInputValue(e.target.value)}
-        value={inputValue}
-        placeholder="Search for collection"
-      />
-      <Link to="/whishlist" className="header-favorite">
-        <MdOutlineFavoriteBorder />
-        FAVORITES
-      </Link>
+      <div className="header-title">
+        <Link to="/">
+          <h2>Movie by Nigth</h2>
+        </Link>
+      </div>
+      <div>
+        <SearchInput
+          onChange={(e) => setInputValue(e.target.value)}
+          value={inputValue}
+          placeholder="Search for collection"
+        />
+      </div>
+      <div className="header-favorite">
+        <MdOutlineFavoriteBorder className="head-favorite--heart" />
+        <div>
+          <Link to="/whishlist" className="header-link">
+            <p>FAVORITES</p>
+          </Link>
+        </div>
+      </div>
+
       <Link to="/cart">
         <div className="image-wrapper wrapper">
           {totalCartItems > 0 && <span>{totalCartItems}</span>}

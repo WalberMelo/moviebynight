@@ -27,6 +27,7 @@
     "react-phone-number-input": "^3.2.11",
     "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0",
+    "react-simple-star-rating": "^4.0.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

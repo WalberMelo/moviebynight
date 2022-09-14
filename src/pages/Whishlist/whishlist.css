@@ -1,17 +1,31 @@
 .movies-cart {
   display: flex;
+  align-items: center;
   padding-bottom: 0.7rem;
   border-bottom: 0.3px solid;
 }
 
 .movie-cart {
+  display: flex;
+  align-items: center;
   background-color: hsl(0, 1%, 23%);
   opacity: 0.9;
-  margin-left: 10px;
   height: 230px;
+  margin-left: 1rem;
+}
+
+.movies-cart > img {
+  width: 20%;
+  height: 20%;
+  border-radius: 15px;
 }
 .movie-cart--details {
+  font-size: 14px;
   color: #f3f3f3fa;
   padding: 0.2rem 0.2rem 1rem 1rem;
   position: relative;
+}
+
+.movie-cart--details > p {
+  font-size: 16px;
 }

@@ -1,0 +1,6 @@
+.cart-movie--details {
+  display: flex;
+  flex-direction: column;
+
+  width: 70%;
+}
