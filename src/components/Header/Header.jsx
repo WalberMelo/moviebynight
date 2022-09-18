@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../context/Context";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { FcShop } from "react-icons/fc";
+import { Popover, Position, Menu, Button } from "evergreen-ui";
 
 import { Avatar, SearchInput } from "evergreen-ui";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
@@ -14,6 +15,11 @@ function Header() {
   // console.log("value:", inputValue);
   //! Transfer inputValue to context throughout function
   () => controlSearchInput(inputValue);
+
+  const logout = () => {
+    sessionStorage.removeItem("token");
+    return Navigate("/");
+  };
 
   return (
     <header>
@@ -45,14 +51,51 @@ function Header() {
           <FcShop className="cart-head--icon" />
         </div>
       </Link>
-      <Link to="/account">
-        <Avatar
-          className="avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg"
-          name="Alan Turing"
-          size={30}
-        />
-      </Link>
+      <div className="avatar-container">
+        <div className="avatar"></div>
+        <div className="avatar-menu">
+          <Popover
+            position={Position.BOTTOM_LEFT}
+            content={
+              <Menu>
+                <Menu.Group>
+                  <Menu.Item onSelect={() => toaster.notify("Profile")}>
+                    Profile
+                  </Menu.Item>
+                  <Menu.Item onSelect={() => toaster.notify("Move")}>
+                    Security
+                  </Menu.Item>
+                  <Menu.Item
+                    onSelect={() => toaster.notify("Rename")}
+                    secondaryText="⌘R"
+                  >
+                    Rename...
+                  </Menu.Item>
+                </Menu.Group>
+                <Menu.Divider />
+                <Menu.Group>
+                  <Menu.Item
+                    onSelect={() => toaster.danger("Delete")}
+                    intent="danger"
+                  >
+                    <Link className="logout" to="/" onClick={logout}>
+                      Logout
+                    </Link>
+                  </Menu.Item>
+                </Menu.Group>
+              </Menu>
+            }
+          >
+            <Button width={10} borderRadius={50} marginRight={16}>
+              <Avatar
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg"
+                name="Alan Turing"
+                size={30}
+              />
+            </Button>
+          </Popover>
+        </div>
+      </div>
     </header>
   );
 }

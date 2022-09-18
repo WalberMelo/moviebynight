@@ -15,21 +15,7 @@ const Movie = styled.div`
   transform: translate(-50%, -50%);
 `;
 export default function Video() {
-  const [duration, setDuration] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const handleDuration = (duration) => {
-    console.log("onDuration", duration);
-    setDuration({ duration });
-  };
-
-  const finishVideo = () => {
-    if (duration === 6.734) {
-      setIsLoaded(true);
-    }
-  };
-
-  console.log(isLoaded);
+  // (duration === 6.734)
 
   return (
     <>
@@ -44,11 +30,9 @@ export default function Video() {
               muted={true}
               playsinline={true}
               onReady={true}
-              onDuration={handleDuration}
             />
           </Movie>
         </Container>
-        {finishVideo}
       </div>
       {/* <Route>{isLoaded && <Redirect to="/Home" />}</Route> */}
     </>

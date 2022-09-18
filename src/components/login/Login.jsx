@@ -29,12 +29,8 @@ function Login(setToken) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginUser({
-      email,
-      password,
-    });
-    sessionStorage.setItem("token", JSON.stringify(token));
-    // setToken(token);
+    const token = await loginUser();
+    setToken.setToken(token);
   };
 
   return (
