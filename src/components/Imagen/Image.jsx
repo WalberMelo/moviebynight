@@ -1,24 +1,11 @@
 import React, { useState, useContext } from "react";
-import styled from "styled-components";
 import { Context } from "../../context/Context";
+import Modal from "../Modal/Modal";
 import PropTypes from "prop-types";
-import { Rating } from "react-simple-star-rating";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoIosAddCircleOutline } from "react-icons/io";
-
-// const ShowModal = styled.div`
-//   position: absolute;
-//   top: 35%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   background-color: rgb(33, 32, 32);
-//   font-size: 14px;
-//   padding: 2rem;
-//   opacity: 80%;
-//   z-index: 100;
-// `;
 
 function Image({ img }) {
   const { id, isFavorite, rating, overview, releaseDate, title, url } = img;
@@ -67,25 +54,19 @@ function Image({ img }) {
     }
   }
 
-  const [showDetails, setShowDetails] = useState(false);
-  const showMovieDetails = (event) => {
-    console.log(event.currentTarget);
-    setShowDetails(!showDetails);
+  /* MODAL */
+  const [showModal, setShowModal] = useState(false);
+
+  const showMovieModal = (event) => {
+    setShowModal(!showModal);
   };
 
-  function displayRating() {
-    if (rating <= 2) {
-      return 1;
-    } else if (rating <= 4) {
-      return 2;
-    } else if (rating <= 7) {
-      return 3;
-    } else if (rating <= 8) {
-      return 4;
-    } else if (rating <= 10) {
-      return 5;
+  const closeModal = (event) => {
+    console.log(event.currentTarget);
+    if (showModal) {
+      setShowModal(false);
     }
-  }
+  };
 
   //Formatting date from 2020-12-07 to Dec 07, 2020
   const date = releaseDate;
@@ -116,33 +97,24 @@ function Image({ img }) {
   formatDate(date);
 
   return (
-    <div>
-      <div
-        className="image-container "
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        onClick={showMovieDetails}
-      >
-        {heartIcon()}
-        {cartIcon()}
-        <img src={url} className="image-grid" />
-      </div>
-      <div className="title">
-        <p>{title}</p>
-        <span>{`${month} ${day}, ${year}`}</span>
-      </div>
-      {showDetails && (
-        <div className="ShowModal">
-          <h3>{title}</h3>
-          <span>{releaseDate}</span>
-          <h5>{overview}</h5>
-          <div>
-            <Rating readonly initialValue={displayRating()} size={"12px"} />
-          </div>
-
-          <span>{rating}</span>
+    <div className="movies-container" onClick={closeModal}>
+      <div className="cards">
+        <div
+          className="image-container "
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          onClick={showMovieModal}
+        >
+          {heartIcon()}
+          {cartIcon()}
+          <img src={url} className="image-grid" />
         </div>
-      )}
+        <div className="title">
+          <p>{title}</p>
+          <span>{`${month} ${day}, ${year}`}</span>
+        </div>
+      </div>
+      <div>{showModal && <Modal details={img} />}</div>
     </div>
   );
 }

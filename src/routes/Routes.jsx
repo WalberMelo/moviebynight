@@ -6,6 +6,8 @@ import Whishlist from "../pages/Whishlist/Whishlist";
 import Header from "../components/Header/Header";
 import Registration from "../pages/Registration/Registration";
 import Video from "../pages/Intro/Video";
+
+import Checkout from "../components/Checkout/checkout";
 // import Login from "../components/login/Login";
 
 function Router() {
@@ -23,6 +25,7 @@ function Router() {
         />
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/registration" element={<Registration />} />
+        <Route path="/checkout" element={<Checkout />} />
 
         <Route
           path="/cart"

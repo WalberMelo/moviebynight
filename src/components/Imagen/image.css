@@ -1,20 +1,30 @@
-.ShowModal {
-  position: absolute;
+.card {
+  position: relative;
+}
 
-  transform: translate(-50%, -50%);
+.showModal {
+  position: absolute;
+  height: 50vh;
+  left: 50%;
+  transform: translate(-50%, -90%);
   background-color: rgb(33, 32, 32);
-  font-size: 14px;
+  font-size: 18px;
   padding: 2rem;
   opacity: 80%;
   z-index: 100;
+}
+
+.closeModal {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .title {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   font-weight: 600;
+  position: relative;
 }
 
 .title > span {

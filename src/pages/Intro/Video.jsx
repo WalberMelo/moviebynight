@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
 import Vid from "../../assets/videos/intro.mp4";
@@ -34,7 +34,6 @@ export default function Video() {
           </Movie>
         </Container>
       </div>
-      {/* <Route>{isLoaded && <Redirect to="/Home" />}</Route> */}
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../context/Context";
+import userRating from "../../hooks/userRating";
 
 function Whishlist() {
   const { allPhotos } = useContext(Context);
@@ -21,6 +22,10 @@ function Whishlist() {
               <span> - ({movie.releaseDate})</span>
             </h3>
             <p>{movie.overview}</p>
+            <div>
+              {userRating(movie.rating)}
+              {movie.rating}
+            </div>
           </div>
         </div>
       </div>

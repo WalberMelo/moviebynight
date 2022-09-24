@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
+  let api_key = import.meta.env.VITE_API_KEY;
   let cartStorage = JSON.parse(localStorage.getItem("products")) || [];
 
   const [allPhotos, setAllPhotos] = useState([]);
@@ -13,8 +14,6 @@ function ContextProvider({ children }) {
   }, [cartItems]);
 
   useEffect(() => {
-    // let query = "popular";
-
     const fetchData = async () => {
       let url = `https://api.themoviedb.org/3/movie/popular?page=1&api_key=${api_key}`;
 
@@ -78,6 +77,10 @@ function ContextProvider({ children }) {
   // const controlSearchInput = (img) => {
   //   setInputImage(img);
   // };
+
+  //!Address Form
+  //!Payment Form
+  //!Need to sent to Review component
 
   return (
     <Context.Provider

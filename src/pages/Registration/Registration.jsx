@@ -3,6 +3,7 @@ import { BiCameraMovie } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import Header from "../../components/Header/Header";
 
 function Registration() {
   const [value, setValue] = useState("");
@@ -51,9 +52,8 @@ function Registration() {
 
   return (
     <>
-      <div className="login-logo">
-        <h2>Movie by Nigth</h2>
-      </div>
+      <Header />
+
       <div className="registration-container">
         <div>
           <div className="registration-title">
@@ -132,7 +132,7 @@ function Registration() {
             <div className="btn--submit">
               <button className="form--submit">
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <span>Sign In</span>
+                  <span>Join us 🍿</span>
                 </Link>
               </button>
             </div>

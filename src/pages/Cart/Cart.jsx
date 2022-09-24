@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import CartItem from "../../components/CartItems/CartItem";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const { cartItems, emptyCart } = useContext(Context);
+  console.log(cartItems);
   const cartItemsElements = cartItems.map((item) => (
     <CartItem key={item.id} item={item} />
   ));
@@ -18,15 +20,6 @@ function Cart() {
   //Place Order to the Server
   const [buttonText, setButtonText] = useState("Place Order");
 
-  function placeOrder() {
-    setButtonText("Ordering...");
-    setTimeout(() => {
-      console.log("Order placed!");
-      setButtonText("Ordered Placed");
-      emptyCart();
-    }, 3000);
-  }
-
   return (
     <main className="cart-page">
       <h2>Check out</h2>
@@ -34,7 +27,9 @@ function Cart() {
       <p className="total-cost">Total:{totalCostDisplay}</p>
       <div className="order-button">
         {cartItems.length > 0 ? (
-          <button onClick={placeOrder}>{buttonText}</button>
+          <Link to="/checkout">
+            <button>{buttonText}</button>
+          </Link>
         ) : (
           <p>You have no items in your cart.</p>
         )}

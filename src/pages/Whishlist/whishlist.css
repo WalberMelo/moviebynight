@@ -3,6 +3,7 @@
   align-items: center;
   padding-bottom: 0.7rem;
   border-bottom: 0.3px solid;
+  width: 60%;
 }
 
 .movie-cart {
@@ -12,6 +13,7 @@
   opacity: 0.9;
   height: 230px;
   margin-left: 1rem;
+  padding: 1rem;
 }
 
 .movies-cart > img {
@@ -20,9 +22,7 @@
   border-radius: 15px;
 }
 .movie-cart--details {
-  font-size: 14px;
   color: #f3f3f3fa;
-  padding: 0.2rem 0.2rem 1rem 1rem;
   position: relative;
 }
 
