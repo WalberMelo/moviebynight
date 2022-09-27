@@ -17,8 +17,6 @@ export default function Login() {
     password: "",
   });
 
-  console.log(user.email, user.password);
-
   const { login, loginWithGoogle, resetPassword } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -72,7 +70,7 @@ export default function Login() {
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-    if (!user.email) return setError("Write an email to reset password");
+    if (!user.email) return setError("*Write an email to reset password");
     try {
       await resetPassword(user.email);
       setError("We sent you an email. Check your inbox");
@@ -98,8 +96,6 @@ export default function Login() {
               name="email"
               value={user.email}
               onChange={handleChange}
-              // validationMessage="This field is required"
-              // isInvalid={isInvalid}
             />
             <TextInputField
               className="login-form"
@@ -109,9 +105,6 @@ export default function Login() {
               name="password"
               value={user.password}
               onChange={handleChange}
-
-              // isInvalid={isInvalid}
-              // validationMessage="This field is required"
             />
             <LoginArea>
               <button
@@ -148,15 +141,14 @@ export default function Login() {
             <p>Sign in with google</p>
           </div>
         </button>
-        <a
-          className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-          href="#!"
-          onClick={handleResetPassword}
-        >
-          Forgot Password?
-        </a>
+        <div className="forgot-pwr">
+          <a className="forgot-link" href="#!" onClick={handleResetPassword}>
+            Forgot Password?
+          </a>
+        </div>
+
+        {error && <p className="errorTitle">{error}</p>}
       </div>
-      {error && <h3 className="errTitle">{error}</h3>}
     </div>
   );
 }

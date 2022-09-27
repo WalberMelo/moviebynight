@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Cart from "../pages/Cart/Cart";
 import Movies from "../pages/Movies/Movies";
 import Whishlist from "../pages/Whishlist/Whishlist";
@@ -21,7 +21,8 @@ function Router() {
             path="/"
             element={
               <ProtectedRoute>
-                <Header /> <Movies />
+                <Header />
+                <Movies />
               </ProtectedRoute>
             }
           />

@@ -5,7 +5,6 @@ import { FcShop } from "react-icons/fc";
 import { Popover, Position, Menu, Button, Avatar } from "evergreen-ui";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { useAuth } from "../../hooks/useAuth";
-import Username from "./Username";
 
 function Header() {
   const { cartItems } = useContext(Context);
@@ -40,7 +39,7 @@ function Header() {
         </div>
       </div>
       <div className="header-registration">
-        <Link to="/registration" className="header-link">
+        <Link to="/register" className="header-link">
           <p>🍿 JOIN US </p>
         </Link>
       </div>
@@ -82,12 +81,11 @@ function Header() {
             }
           >
             <Button width={10} borderRadius={50} marginRight={16}>
-              {/* <Avatar
+              <Avatar
                 src="https://lh3.googleusercontent.com/ogw/AOh-ky1rpxvEGL6xpjCFKUOp5FKY20o0_4p01ymUS-hl=s64-c-mo"
                 name="Walber Melo"
                 size={30}
-              /> */}
-              <Username />
+              />
             </Button>
           </Popover>
         </div>

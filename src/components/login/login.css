@@ -47,12 +47,15 @@
 .login-form {
   padding: 1.3rem;
 }
-
+.signin {
+  font-size: 14px;
+}
 .signin:hover {
   color: #e5f509;
 }
 
 .registration > span {
+  font-size: 14px;
   color: grey;
   font-weight: 400;
 }
@@ -77,4 +80,22 @@
 
 .btn-text {
   font-size: 14px;
+}
+
+.forgot-pwr {
+  margin-top: 8px;
+}
+
+.forgot-pwr > a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #f3f3f3;
+}
+
+.forgot-pwr > a:hover {
+  color: #e5f509;
+}
+.errorTitle {
+  font-size: 14px;
+  color: #ff0000ac;
 }
