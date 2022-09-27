@@ -4,14 +4,22 @@ import { Link, Navigate } from "react-router-dom";
 import { FcShop } from "react-icons/fc";
 import { Popover, Position, Menu, Button, Avatar } from "evergreen-ui";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { useAuth } from "../../hooks/useAuth";
+import Username from "./Username";
 
 function Header() {
   const { cartItems } = useContext(Context);
   const totalCartItems = cartItems.length;
+  const { logout } = useAuth();
 
-  const logout = () => {
-    sessionStorage.removeItem("token");
-    return Navigate("/");
+  const handleLogout = async () => {
+    try {
+      await logout();
+      sessionStorage.removeItem("token");
+      return Navigate("/");
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -65,7 +73,7 @@ function Header() {
                     onSelect={() => toaster.danger("Delete")}
                     intent="danger"
                   >
-                    <Link className="logout" to="/" onClick={logout}>
+                    <Link className="logout" to="/" onClick={handleLogout}>
                       Logout
                     </Link>
                   </Menu.Item>
@@ -74,11 +82,12 @@ function Header() {
             }
           >
             <Button width={10} borderRadius={50} marginRight={16}>
-              <Avatar
+              {/* <Avatar
                 src="https://lh3.googleusercontent.com/ogw/AOh-ky1rpxvEGL6xpjCFKUOp5FKY20o0_4p01ymUS-hl=s64-c-mo"
                 name="Walber Melo"
                 size={30}
-              />
+              /> */}
+              <Username />
             </Button>
           </Popover>
         </div>

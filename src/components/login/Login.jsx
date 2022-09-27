@@ -1,36 +1,84 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import { TextInputField } from "evergreen-ui";
-import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+//Style login area
 const LoginArea = styled.div`
   display: flex;
   justify-content: space-around;
 `;
 
-async function loginUser(credentials) {
-  return fetch("http://localhost:8080/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
-}
+export default function Login() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-function Login(setToken) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  console.log(email);
-  console.log(password);
-  // const [isInvalid, setIsInvalid] = useState(false);
+  console.log(user.email, user.password);
+
+  const { login, loginWithGoogle, resetPassword } = useAuth();
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginUser();
-    setToken.setToken(token);
+    setError("");
+    try {
+      await login(user.email, user.password);
+      navigate("/");
+    } catch (error) {
+      console.log(error.code);
+      if (error.code === "auth/internal-error")
+        return setError("Correo invalido");
+      if (error.code === "auth/missing-email")
+        return setError("Introduce email");
+      if (error.code === "auth/invalid-email")
+        return setError("Email no existe");
+      if (error.code === "auth/weak-password")
+        return setError("La contraseña debe tener 6 carácteres");
+      if (error.code === "auth/user-not-found")
+        return setError("Usuario no registrado");
+      if (error.code === "auth/too-many-requests")
+        return setError("Demasiados intentos. Intente cambiar la contraseña");
+      if (error.code === "auth/wrong-password")
+        return setError("Contraseña errónea");
+      if (error.code === "auth/email-already-in-use")
+        return setError("en uso ");
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => {
+      return {
+        ...prevUser,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (error) {
+      if (error.code === "auth/popup-closed-by-user")
+        return setError("Popup-closed");
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    if (!user.email) return setError("Write an email to reset password");
+    try {
+      await resetPassword(user.email);
+      setError("We sent you an email. Check your inbox");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -47,8 +95,9 @@ function Login(setToken) {
               type="text"
               label=""
               placeholder="Email or phone number"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={user.email}
+              onChange={handleChange}
               // validationMessage="This field is required"
               // isInvalid={isInvalid}
             />
@@ -57,20 +106,22 @@ function Login(setToken) {
               type="text"
               label=""
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+
               // isInvalid={isInvalid}
               // validationMessage="This field is required"
             />
             <LoginArea>
-              <Button
+              <button
                 type="submit"
                 className="btn-login"
                 size="lg"
                 variant="outline-secondary"
               >
                 Sign In
-              </Button>
+              </button>
             </LoginArea>
           </form>
         </div>
@@ -78,7 +129,7 @@ function Login(setToken) {
           <h5 className="registration">
             <span>New to Movie By Night? </span>
             <Link
-              to="/registration"
+              to="/register"
               className="signin"
               style={{ textDecoration: "none" }}
             >
@@ -86,13 +137,31 @@ function Login(setToken) {
             </Link>
           </h5>
         </div>
+        <button className="google-btn" onClick={handleGoogleSignin}>
+          <div className="google-icon">
+            <img
+              className="google-icon"
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            />
+          </div>
+          <div className="btn-text">
+            <p>Sign in with google</p>
+          </div>
+        </button>
+        <a
+          className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+          href="#!"
+          onClick={handleResetPassword}
+        >
+          Forgot Password?
+        </a>
       </div>
+      {error && <h3 className="errTitle">{error}</h3>}
     </div>
   );
 }
 
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
-
-export default Login;
+// Login.propTypes = {
+//   setToken: PropTypes.func.isRequired,
+//   setIsAuth: PropTypes.func.isRequired,
+// };

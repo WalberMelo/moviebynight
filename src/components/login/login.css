@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
 .login-section {
   width: 1400px;
   height: 800px;
@@ -16,6 +18,7 @@
   align-items: center;
   font-size: 1.5rem;
   margin-left: 30px;
+  -webkit-text-stroke: 0.2px #fff;
   background-image: linear-gradient(
     to right,
     var(--light-blue),
@@ -59,4 +62,19 @@
   font-size: 1.1rem;
   background-color: #703ad2;
   font-weight: 600;
+}
+
+.google-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.google-icon {
+  margin-right: 0.5rem;
+}
+
+.btn-text {
+  font-size: 14px;
 }

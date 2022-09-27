@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-  let api_key = import.meta.env.VITE_API_KEY;
+  let api_key = import.meta.env.VITE_TMDB_API_KEY;
   let cartStorage = JSON.parse(localStorage.getItem("products")) || [];
 
   const [allPhotos, setAllPhotos] = useState([]);
